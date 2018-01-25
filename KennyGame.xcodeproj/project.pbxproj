@@ -12,6 +12,7 @@
 		C3AA271B2018DFE100784540 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AA27192018DFE100784540 /* Main.storyboard */; };
 		C3AA271D2018DFE100784540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3AA271C2018DFE100784540 /* Assets.xcassets */; };
 		C3AA27202018DFE100784540 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AA271E2018DFE100784540 /* LaunchScreen.storyboard */; };
+		C3AA27282018E0A000784540 /* kenny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3AA27272018E0A000784540 /* kenny.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C3AA271C2018DFE100784540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3AA271F2018DFE100784540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3AA27212018DFE100784540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3AA27272018E0A000784540 /* kenny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kenny.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		C3AA27142018DFE100784540 /* KennyGame */ = {
 			isa = PBXGroup;
 			children = (
+				C3AA27272018E0A000784540 /* kenny.jpg */,
 				C3AA27152018DFE100784540 /* AppDelegate.swift */,
 				C3AA27172018DFE100784540 /* ViewController.swift */,
 				C3AA27192018DFE100784540 /* Main.storyboard */,
@@ -124,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3AA27202018DFE100784540 /* LaunchScreen.storyboard in Resources */,
+				C3AA27282018E0A000784540 /* kenny.jpg in Resources */,
 				C3AA271D2018DFE100784540 /* Assets.xcassets in Resources */,
 				C3AA271B2018DFE100784540 /* Main.storyboard in Resources */,
 			);
