@@ -28,6 +28,8 @@ class ViewController: UIViewController {
     var timer = Timer()
     var counter = 0
     
+    var kennyArray = [UIImageView]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -65,6 +67,18 @@ class ViewController: UIViewController {
         counter = 5
         timeLabel.text = "\(counter)"
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.countDown), userInfo: nil, repeats: true)
+        
+        //arrays
+        kennyArray.append(kenny1)
+        kennyArray.append(kenny2)
+        kennyArray.append(kenny3)
+        kennyArray.append(kenny4)
+        kennyArray.append(kenny5)
+        kennyArray.append(kenny6)
+        kennyArray.append(kenny7)
+        kennyArray.append(kenny8)
+        kennyArray.append(kenny9)
+        hideKenny()
     }
     @objc func increaseScore(){
         score = score + 1
@@ -84,6 +98,14 @@ class ViewController: UIViewController {
 
             
         }
+    }
+    
+    @objc func hideKenny(){
+        for kenny in kennyArray{
+            kenny.isHidden = true
+        }
+        let random = Int(arc4random_uniform(UInt32(kennyArray.count-1)))
+        kennyArray[random].isHidden=false
     }
 
 
