@@ -30,9 +30,18 @@ class ViewController: UIViewController {
     
     var kennyArray = [UIImageView]()
     
+    var hideTimer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let highScore = UserDefaults.standard.object(forKey: "highscore")
+        if highScore==nil{
+            highscoreLabel.text = "0"
+        }
+        if let newScore = highScore as? Int {
+            highscoreLabel.text=String(newScore)
+        }
         let recognizer1 = UITapGestureRecognizer(target:self , action: #selector(ViewController.increaseScore))
         let recognizer2 = UITapGestureRecognizer(target:self , action: #selector(ViewController.increaseScore))
         let recognizer3 = UITapGestureRecognizer(target:self , action: #selector(ViewController.increaseScore))
@@ -67,7 +76,7 @@ class ViewController: UIViewController {
         counter = 5
         timeLabel.text = "\(counter)"
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.countDown), userInfo: nil, repeats: true)
-        
+        hideTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(ViewController.hideKenny), userInfo: nil, repeats: true)
         //arrays
         kennyArray.append(kenny1)
         kennyArray.append(kenny2)
@@ -91,12 +100,27 @@ class ViewController: UIViewController {
         timeLabel.text = "\(counter)"
         if counter == 0 {
             timer.invalidate()
+            hideTimer.invalidate()
+            if self.score > Int(highscoreLabel.text!)!{
+                UserDefaults .standard.set(self.score, forKey: "highscore")
+                highscoreLabel.text = "High Score: \(self.score)"
+            }
             let alert = UIAlertController(title: "Time", message: "Time is up!", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "OK", style: .default)
+            let replayButton = UIAlertAction(title: "Replay", style: .default, handler: { (UIAlertAction) in
+                
+                self.score = 0
+                self.scoreLabel.text = "Score: \(self.score)"
+                self.counter = 30
+                self.timeLabel.text = "\(self.counter)"
+                
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.countDown), userInfo: nil, repeats: true)
+                self.hideTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(ViewController.hideKenny), userInfo: nil, repeats: true)
+                
+            })
             alert.addAction(okButton)
+            alert.addAction(replayButton)
             self.present(alert, animated: true, completion: nil)
-
-            
         }
     }
     
